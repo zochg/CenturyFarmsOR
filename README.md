@@ -36,4 +36,4 @@ of family farms.
 
 **Screencap of Data Layers**
 
-![Screencap](/arc_data_screenshot.png)
+![Screencap]( img/arc_data_screenshot.png )

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Hello World</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--add required stylesheets-->
+    <!--make sure you add bootstrap 3.3.7 rather than 4.0.0-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <!--leaflet css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/leaflet.css">
+    <!--animation-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <!--facebook and info icons-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Google Font-->
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/Storymap.css">
+
+
+    <!--add required libraries-->
+    <!--leaflet-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/leaflet.js"></script>
+    <!--jquery-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!--bootstrap-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--leaflet.ajax for asynchronously adding geojson data-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.min.js"></script>
+    <!--story map plugin-->
+    <script src="js/Storymap.js"></script>
+    <!--add favicon for the web page-->
+    <link rel="shortcut icon" href="img/US-PeaceCorps-Logo-alt.ico" type="image/x-icon">
+
+</head>
+<body>
+<div id="storymap" class="container-fluid">
+    <!--<nav class="navbar navbar-default">-->
+        <!--<div class="container-fluid">-->
+            <!--<div class="nabvar-header">-->
+                <!--<a class="navbar-brand" href="index.html">My Time In Senegal</a>-->
+            <!--</div>-->
+            <!--&lt;!&ndash;<ul class="navbar-nav">&ndash;&gt;-->
+                <!--&lt;!&ndash;<li class="active"><a href="index.html">Home</a></li>&ndash;&gt;-->
+                <!--&lt;!&ndash;&lt;!&ndash;<li><a href="javascript:window.scrollBy(0, $('section[data-scene=\'scene1\']').offset().top - $(window).scrollTop() - $('.storymap-navbar').height() - 10);">Senegal Overview</a></li>&ndash;&gt;&ndash;&gt;-->
+                <!--&lt;!&ndash;&lt;!&ndash;<li><a href="javascript:window.scrollBy(0, $('section[data-scene=\'scene2\']').offset().top - $(window).scrollTop() - $('.storymap-navbar').height() - 10);">Senegal Regions</a></li>&ndash;&gt;&ndash;&gt;-->
+                <!--&lt;!&ndash;&lt;!&ndash;<li><a href="javascript:window.scrollBy(0, $('section[data-scene=\'scene3\']').offset().top - $(window).scrollTop() - $('.storymap-navbar').height() - 10);">Kedougou</a></li>&ndash;&gt;&ndash;&gt;-->
+            <!--&lt;!&ndash;</ul>&ndash;&gt;-->
+        <!--</div>-->
+    <!--</nav>-->
+    <div class="row">
+        <div class="col-sm-6 col-md-8 storymap-story">
+            <section class="viewing section-opacity" data-scene="overview" data-background="Assets/Farming.mp4" style="height: 328.17px; width:0px; padding: 0px;">
+                <!--<video class="fullscreen" playsinline="" autoplay="" muted="" loop=""?>-->
+                    <!--<source src="Assets/Senegal.mp4" type="video/mp4">-->
+                <!--</video>-->
+                <div class="fullscreen text-center">
+                    <h1>Century Farms in Oregon</h1>
+                    <h1>
+                        <small style="color: rgba(255,255,255,0.95)"> The Century Farm program is an important way of preserving Oregon's rich agricultural history and heritage. This story map is intended to demonstrate Oregon's agricultural history.
+                        </small>
+                    </h1>
+                </div>
+            </section>
+            <section>
+            </section>
+            <section data-scene="scene1">
+                <h2>Welcome to Senegal!</h2>
+                <br>Senegal is a country in West Africa, and is the furthest West of any country on the continent.</br>
+                <br>I, along with 58 other Americans, served as a Peace Corps Volunteer for two years (2014-2016) in Senegal as a Sustainable Agriculture Agent. My primary job was to work with farmers and teach them techniques to help improve their crop yields</br>
+                <br>While I worked as a PCV, I learned a local language called Malinké and learned Senegalese customs and culture.</br>
+                <img src="img/bus.jpg" class="img-thumbnail" alt="Volunteers on a bus">
+            </section>
+            <section data-scene="scene2">
+                <h2>Senegal is composed of 14 regions</h2>
+                <br>These regions are outlined in green. They vary in economic development, although the primary industry in the country is agriculture, particularly peanut farming.</br>
+                <br>Generally, the western portion of the country is more developed, as indicated by the electrical grid (in red).</br>
+                <br>Senegal's northern border is the Senegal river, with Mauritania to the north.</br>
+                <br>To the south is Guinea-Bissau and Guinea. Mali lies to the east. The Gambia is the river/country that runs inside of Senegal</br>
+                <img src="img/hiking.jpg" class="img-responsive" alt="Hiking in the bush">
+            </section>
+            <section data-scene="scene3">
+                <h2>This region is Kedougou, the region I called home.</h2>
+                <br>Kedougou is the most impoverished region in Senegal, and also the hardest to reach. It is also the most beautiful, wettest, and funnest place to be.</br>
+                <br>Kedougou means "Land of Men." As of the 2013 census, it had a population of roughly 150,000 people.</br>
+                <br>The most prevalent ethnic group in Kedougou is the Pulafuta, a traditional herder/farmer group. I lived and worked with the Malinké, who do not herd and focus more on farming.</br>
+                <br>As you can see from the electrical grid, Kedougou is (relatively) undeveloped.</br>
+                <img src="img/kedougou.jpg" class="img-responsive" alt="A boutique in Kedougou">
+            </section>
+            <section data-scene="scene4">
+                <h2>Fode Binea</h2>
+                <br>Fode Binea was the village I lived in while I was in Kedougou.</br>
+                <br>A home to only 170 people, I quickly knew everyone and was known by everyone</br>
+                <br>Because it is so small and so far from other major town centers, people in Binea rely primarily on subsistence agriculture.</br>
+                <br>In Binea, we mainly farmed corn, rice, peanuts, and a native African grass called fonio.</br>
+                <br>My job in Binea was to teach my farmers techniques to improve their crop yields, to learn how to save seed until next season, to deal with pests, and to try farming new crops, like beans.</br>
+                <br>The work was hard and brutal in 100+ degree heat and 90% humidity, but I loved it all the same.</br>
+                <img src="img/binea.jpg" class="img-thumbnail" alt="A training in Fode Binea">
+            </section>
+            <section data-scene="scene5">
+                <h2>Faraba</h2>
+                <br>Faraba, the village 3 kilometers north of Fode Binea, was another place I spent a lot of time learning and working.</br>
+                <br>Faraba means "Large fertile wetland" in Malinké -- it's a great place to grow rice and the people of Faraba grew plenty (though you can't tell from this satellite photo, taken in the dry season).</br>
+                <br>Dembo Tigana, pictured here, was one of my best work partners. He is the Master Farmer in Faraba -- in exchange for funding from the Peace Corps,
+                he demonstrates the techniques we extend in his one hectare parcel of land. In this parcel we held semi-annual "Open Field Days," where farmers in the
+                area would come to learn and network. Dembo led all of the trainings and is one of the kindest, most helpful people I've ever met.</br>
+                <img src="img/dembo.jpg" class="img-responsive" alt="Dembo Tigana">
+            </section>
+            <section data-scene="scene6">
+                <h2>Ingli</h2>
+                <br>It wasn't all work though -- we explored and saw amazing places, too.</br>
+                <br>When we needed to get away from it all, volunteers would once or twice a year take a 20km bike ride and another 10km hike into the bush to reach
+                Ingli, a waterfall on the border of Senegal and Guinea.</br>
+                <br>Ingli is a magical place, and one of my favorites to visit. Incredibly remote, the only people who knew about it were local villagers and Peace Corps Volunteers --
+                please help us keep it a secret and don't tell anyone!</br>
+                <img src="img/ingli.jpg" class="img-responsive" alt="The waterfall at Ingli">
+            </section>
+            <section class="viewing section-opacity" data-scene="end" data-background="img/end.jpg" style="height: 340.38px; width: 0px; padding: 0px;">
+                <div class="fullscreen text-center end-bg-img">
+                    <br>
+                    <h1 class="">Thank you for following me through a small section of my time in Senegal!</h1>
+                </div>
+            </section>
+        </div>
+        <div class="col-sm-6 col-md-8 storymap-map"></div>
+    </div>
+    <dl>
+        <dt>
+            <!--facebook icon-->
+            <a class="fa fa-facebook-square btn"
+               href="https://facebook.com/sharer.php?u=https://github.com/zochg/MyTimeInSenegal/"
+               target="_blank"></a>
+        </dt>
+        <dt>
+            <!--facebook icon-->
+            <a class="fa fa-git-square btn" href="https://github.com/zochg/MyTimeInSenegal/" style="top:40px"
+               target="_blank"></a>
+        </dt>
+        <dt>
+            <!--info icon-->
+            <i class="fa fa-file-text-o btn" style="top:60px" data-toggle="modal" data-target="#info-modal"></i>
+        </dt>
+    </dl>
+    <!--the info page-->
+    <div class="modal fade" id="info-modal" role="dialog">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">About</h4>
+                </div>
+                <div class="modal-body">
+                    <p>This story map was completed as part of a project for GEOG371 Geovisualization, a course taught by Bo Zhao at OSU. This story map is meant to illustrate the Century Farm Progam in Oregon.</p>
+                    <p><b>storymap.js</b> | Released Date: 02/20/2017 | Version: 2.1 | MIT License </p>
+                    <p><b>Author: Grant Zoch</b> | College of Earth, Ocean, Atmospheric Science | Oregon State University
+                    </p>
+                    <p>The <a href="https://www.youtube.com/watch?v=GshpFSwoNb4">Background video</a> on the front page
+                        was clipped from Youtube</p>
+                    <p>The favicon image was acquired from <a>http://www.udlcenter.org/advocacy/state/oregon.</a></p>
+                    <p>This story map uses geospatial data from mapbox, Google Earth Engine, ESRI Map, Open Street Maps
+                        and github.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    var layers = {
+        //Terrain Layer
+        layer1: {
+            layer: L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'),
+        },
+        //SENEGAL geojson
+        layer2: {
+            layer: L.geoJson.ajax('Assets/regions_senegal.geojson', {
+                color: 'yellowgreen',
+                weight: 5
+            }),
+            legend: '<i style="background: yellowgreen; opacity: 0.5"></i><p><b>Regions of Senegal</b></p>',
+            legend: '<i style="background: red; opacity: 0.5"></i><p><b>Electrical Grid</b></p>'
+        },
+        //Basemap
+        layer3: {
+            layer: L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiamFrb2J6aGFvIiwiYSI6ImNpcms2YWsyMzAwMmtmbG5icTFxZ3ZkdncifQ.P9MBej1xacybKcDN_jehvw', {id: 'mapbox.outdoors'})
+        },
+        layer4: {
+            layer: L.geoJson.ajax('Assets/senegalfinal.geojson', {
+                color: 'red',
+                weight: 5
+            })
+        }
+
+    };
+
+    var scenes = {
+        overview: {lat: 14.467079, lng: -14.460133, zoom: 7, name: 'Cover Page'},
+        scene1: {lat: 14.467079, lng: -16.460133, zoom:  7, layers: ['layer3'], name: "scene 1"},
+        scene2: {lat: 14.467079, lng: -16.460133, zoom:  7, layers: ['layer3', 'layer2', 'layer4'], name: "scene 2"},
+        scene3: {lat: 12.8605, lng: -13.2747, zoom: 9, layers: ['layer2', 'layer1', 'layer4'], name: "scene 3"},
+        scene4: {lat: 12.785738, lng: -11.707882, zoom: 17, layers: ['layer1'], name: "scene 4"},
+        scene5: {lat: 12.816825, lng: -11.699472, zoom: 17, layers: ['layer1'], name: "scene 5"},
+        scene6: {lat: 12.403387, lng: -12.458175, zoom: 17, layers: ['layer1'], name: "scene 6"}
+    };
+    $('#storymap').storymap({
+        scenes: scenes,
+        layers: layers,
+        baselayer: layers.layer3,
+        legend: true,
+        loader: false,
+        flyto: true,
+        credits: "Made with love by Grant Zoch",
+        scalebar: true,
+        scrolldown: true,
+        progressline: true,
+        navwidget: true,
+        navbar: true,
+        createMap: function () {
+            var map = L.map($(".storymap-map")[0], {zoomControl: false}).setView([14.467079, -14.460133], 8);
+            basemap = this.baselayer.layer.addTo(map);
+            return map;
+        }
+    });
+</script>
+</body>
+</html>

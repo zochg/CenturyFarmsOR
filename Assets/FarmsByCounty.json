@@ -1,0 +1,358 @@
+{
+  "currentVersion": 10.31,
+  "id": 2,
+  "name": "Century Farms by County",
+  "type": "Feature Layer",
+  "description": "Abstract: Stats on Oregon's century farms and ranches. Statistics are by county and include numbers of centenial and sesquicentenail farms and ranches. Also included are oldest records by county.\n\nPurpose: not available\n\nMetadata: http://oe.oregonexplorer.info/metadata/CFR_county_stats.htm\n\nDownload: http://oe.oregonexplorer.info/externalcontent/spatialdatafordownload/CFRStats.zip",
+  "geometryType": "esriGeometryPolygon",
+  "copyrightText": "Agency not available (11/2011)",
+  "parentLayer": {
+    "id": 1,
+    "name": "Century Farms and Ranches"
+  },
+  "subLayers": [],
+  "minScale": 0,
+  "maxScale": 0,
+  "drawingInfo": {
+    "renderer": {
+      "type": "classBreaks",
+      "field": "num_centennial_farms",
+      "classificationMethod": "esriClassifyManual",
+      "minValue": 0,
+      "classBreakInfos": [
+        {
+          "symbol": {
+            "type": "esriSFS",
+            "style": "esriSFSSolid",
+            "color": [
+              255,
+              255,
+              255,
+              255
+            ],
+            "outline": {
+              "type": "esriSLS",
+              "style": "esriSLSSolid",
+              "color": [
+                0,
+                0,
+                0,
+                255
+              ],
+              "width": 0.4
+            }
+          },
+          "classMaxValue": 0,
+          "label": "0",
+          "description": ""
+        },
+        {
+          "symbol": {
+            "type": "esriSFS",
+            "style": "esriSFSSolid",
+            "color": [
+              225,
+              245,
+              174,
+              255
+            ],
+            "outline": {
+              "type": "esriSLS",
+              "style": "esriSLSSolid",
+              "color": [
+                110,
+                110,
+                110,
+                255
+              ],
+              "width": 0.4
+            }
+          },
+          "classMaxValue": 2,
+          "label": "1 - 2",
+          "description": ""
+        },
+        {
+          "symbol": {
+            "type": "esriSFS",
+            "style": "esriSFSSolid",
+            "color": [
+              213,
+              237,
+              142,
+              255
+            ],
+            "outline": {
+              "type": "esriSLS",
+              "style": "esriSLSSolid",
+              "color": [
+                110,
+                110,
+                110,
+                255
+              ],
+              "width": 0.4
+            }
+          },
+          "classMaxValue": 5,
+          "label": "3 - 5",
+          "description": ""
+        },
+        {
+          "symbol": {
+            "type": "esriSFS",
+            "style": "esriSFSSolid",
+            "color": [
+              199,
+              227,
+              113,
+              255
+            ],
+            "outline": {
+              "type": "esriSLS",
+              "style": "esriSLSSolid",
+              "color": [
+                110,
+                110,
+                110,
+                255
+              ],
+              "width": 0.4
+            }
+          },
+          "classMaxValue": 10,
+          "label": "6 - 10",
+          "description": ""
+        },
+        {
+          "symbol": {
+            "type": "esriSFS",
+            "style": "esriSFSSolid",
+            "color": [
+              185,
+              219,
+              83,
+              255
+            ],
+            "outline": {
+              "type": "esriSLS",
+              "style": "esriSLSSolid",
+              "color": [
+                110,
+                110,
+                110,
+                255
+              ],
+              "width": 0.4
+            }
+          },
+          "classMaxValue": 20,
+          "label": "11 - 20",
+          "description": ""
+        },
+        {
+          "symbol": {
+            "type": "esriSFS",
+            "style": "esriSFSSolid",
+            "color": [
+              172,
+              212,
+              55,
+              255
+            ],
+            "outline": {
+              "type": "esriSLS",
+              "style": "esriSLSSolid",
+              "color": [
+                110,
+                110,
+                110,
+                255
+              ],
+              "width": 0.4
+            }
+          },
+          "classMaxValue": 70,
+          "label": "21 - 70",
+          "description": ""
+        },
+        {
+          "symbol": {
+            "type": "esriSFS",
+            "style": "esriSFSSolid",
+            "color": [
+              157,
+              204,
+              16,
+              255
+            ],
+            "outline": {
+              "type": "esriSLS",
+              "style": "esriSLSSolid",
+              "color": [
+                110,
+                110,
+                110,
+                255
+              ],
+              "width": 0.4
+            }
+          },
+          "classMaxValue": 130,
+          "label": "71 - 130",
+          "description": ""
+        }
+      ]
+    },
+    "transparency": 15,
+    "labelingInfo": [
+      {
+        "labelPlacement": "esriServerPolygonPlacementAlwaysHorizontal",
+        "where": null,
+        "labelExpression": "[COUNTY_NAM]",
+        "useCodedValues": true,
+        "symbol": {
+          "type": "esriTS",
+          "color": [
+            0,
+            0,
+            0,
+            255
+          ],
+          "backgroundColor": null,
+          "borderLineColor": null,
+          "borderLineSize": null,
+          "verticalAlignment": "bottom",
+          "horizontalAlignment": "center",
+          "rightToLeft": false,
+          "angle": 0,
+          "xoffset": 0,
+          "yoffset": 0,
+          "kerning": true,
+          "haloColor": [
+            215,
+            215,
+            215,
+            255
+          ],
+          "haloSize": 0.5,
+          "font": {
+            "family": "Tahoma",
+            "size": 10,
+            "style": "normal",
+            "weight": "normal",
+            "decoration": "none"
+          }
+        },
+        "minScale": 5000000,
+        "maxScale": 0
+      }
+    ]
+  },
+  "defaultVisibility": false,
+  "extent": {
+    "xmin": -1.38819640486E7,
+    "ymin": 5159793.3749,
+    "xmax": -1.29646047087E7,
+    "ymax": 5827329.6814,
+    "spatialReference": {
+      "wkid": 102100,
+      "latestWkid": 3857
+    }
+  },
+  "hasAttachments": false,
+  "htmlPopupType": "esriServerHTMLPopupTypeAsHTMLText",
+  "displayField": "county_nam",
+  "typeIdField": null,
+  "fields": [
+    {
+      "name": "objectid",
+      "type": "esriFieldTypeOID",
+      "alias": "OBJECTID",
+      "domain": null
+    },
+    {
+      "name": "county_nam",
+      "type": "esriFieldTypeString",
+      "alias": "COUNTY_NAM",
+      "length": 15,
+      "domain": null
+    },
+    {
+      "name": "total_records",
+      "type": "esriFieldTypeSmallInteger",
+      "alias": "Total_Records",
+      "domain": null
+    },
+    {
+      "name": "num_centennial_farms",
+      "type": "esriFieldTypeSmallInteger",
+      "alias": "Num_Centennial_Farms",
+      "domain": null
+    },
+    {
+      "name": "num_centennial_ranches",
+      "type": "esriFieldTypeSmallInteger",
+      "alias": "Num_Centennial_Ranches",
+      "domain": null
+    },
+    {
+      "name": "num_sesquicentennial_farms",
+      "type": "esriFieldTypeSmallInteger",
+      "alias": "Num_Sesquicentennial_Farms",
+      "domain": null
+    },
+    {
+      "name": "num_sesquicentennial_ranches",
+      "type": "esriFieldTypeSmallInteger",
+      "alias": "Num_Sesquicentennial_Ranches",
+      "domain": null
+    },
+    {
+      "name": "earliest_farm",
+      "type": "esriFieldTypeSmallInteger",
+      "alias": "Earliest_Farm",
+      "domain": null
+    },
+    {
+      "name": "shape",
+      "type": "esriFieldTypeGeometry",
+      "alias": "Shape",
+      "domain": null
+    },
+    {
+      "name": "st_area(shape)",
+      "type": "esriFieldTypeDouble",
+      "alias": "st_area(shape)",
+      "domain": null
+    },
+    {
+      "name": "st_length(shape)",
+      "type": "esriFieldTypeDouble",
+      "alias": "st_length(shape)",
+      "domain": null
+    }
+  ],
+  "relationships": [],
+  "canModifyLayer": true,
+  "canScaleSymbols": false,
+  "hasLabels": true,
+  "capabilities": "Data,Map,Query",
+  "maxRecordCount": 1000,
+  "supportsStatistics": true,
+  "supportsAdvancedQueries": true,
+  "supportedQueryFormats": "JSON, AMF",
+  "isDataVersioned": true,
+  "ownershipBasedAccessControlForFeatures": {"allowOthersToQuery": true},
+  "useStandardizedQueries": true,
+  "advancedQueryCapabilities": {
+    "useStandardizedQueries": true,
+    "supportsStatistics": true,
+    "supportsOrderBy": true,
+    "supportsDistinct": true,
+    "supportsPagination": true,
+    "supportsTrueCurve": true,
+    "supportsReturningQueryExtent": true,
+    "supportsQueryWithDistance": true
+  }
+}

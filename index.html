@@ -45,13 +45,22 @@
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="javascript:window.scrollBy(0, $('section[data-scene=scene1]').offset().top  - $(window).scrollTop() - $('.navbar').height()  - 10);">Scene 1</a>
+                    <a href="javascript:window.scrollBy(0, $('section[data-scene=scene1]').offset().top  - $(window).scrollTop() - $('.navbar').height()  - 10);">Agriculture in OR</a>
                 </li>
                 <li>
-                    <a href="javascript:window.scrollBy(0, $('section[data-scene=scene2]').offset().top  - $(window).scrollTop() - $('.navbar').height()  - 10);">Scene 2</a>
+                    <a href="javascript:window.scrollBy(0, $('section[data-scene=scene2]').offset().top  - $(window).scrollTop() - $('.navbar').height()  - 10);">The Century Farm Program</a>
                 </li>
                 <li>
-                    <a href="javascript:window.scrollBy(0, $('section[data-scene=scene3]').offset().top  - $(window).scrollTop() - $('.navbar').height()  - 10);">Scene 3</a>
+                    <a href="javascript:window.scrollBy(0, $('section[data-scene=scene3]').offset().top  - $(window).scrollTop() - $('.navbar').height()  - 10);">Earliest Farms</a>
+                </li>
+                <li>
+                    <a href="javascript:window.scrollBy(0, $('section[data-scene=scene4]').offset().top  - $(window).scrollTop() - $('.navbar').height()  - 10);">Iwasaki Brothers, Inc.</a>
+                </li>
+                <li>
+                    <a href="javascript:window.scrollBy(0, $('section[data-scene=scene5]').offset().top  - $(window).scrollTop() - $('.navbar').height()  - 10);">The Mosby Farm</a>
+                </li>
+                <li>
+                    <a href="javascript:window.scrollBy(0, $('section[data-scene=scene6]').offset().top  - $(window).scrollTop() - $('.navbar').height()  - 10);">Jesse and Ruby Looney Farm</a>
                 </li>
             </ul>
         </div>
@@ -95,12 +104,20 @@
                 <small><a href="http://www.iwasaki-bros.com/index.html">Information and photos from Iwasaki Brothers, Inc.</a></small>
             </section>
             <section data-scene="scene5">
-                <h2>Scene 4</h2>
-                <!--<img src="img/dembo.jpg" class="img-responsive" alt="Dembo Tigana">-->
+                <h2>The Mosby Farm</h2>
+                <br>Originally founded in 1852 by David and Isabelle Mosby as a grain and hay farm, the Mosby Farm is now a small-scale beef operation.</br>
+                <br>David Mosby arrived in Oregon in 1850 and laid claim to a parcel of land which he established as a farm. Originally, it was a subsistence farm, with additional income earned through the raising and sale of hogs, beef cattle, and timber.</br>
+                <br>Currently, the farm runs 100 cow/calf pairs and harvests winter hay when it's available.</br>
+                <iframe width="536" height="300" src="https://www.youtube.com/embed/ZBQZy39Lgok" frameborder="0" allowfullscreen></iframe>
+                <small>Video courtesy of the <a href="https://www.youtube.com/watch?v=ZBQZy39Lgok#action=share">Register-Guard</a></small>
             </section>
             <section data-scene="scene6">
-                <h2>Scene 5</h2>
-                <!--<img src="img/ingli.jpg" class="img-responsive" alt="The waterfall at Ingli">-->
+                <h2>Jesse and Ruby Looney Farm</h2>
+                <br>As members of the first wagon train of settlers to Oregon, led by Dr. Marcus Whitman (pictured below), Jesse and Ruby Looney arrived in the Oregon Territory in 1843.</br>
+                <br>Jesse Looney received his family's land grant in 1846 and quickly set about clearing the land to build the farm, using animal traction.</br>
+                <br>Originally a grain and dairy farm, after 173 years in operation, the farm now primarily produces grass seed and produce, as well as hosting a purebread Hereford cattle herd.</br>
+                <br>The farm is currently run by Smith Cox, the 6th generation of the family.</br>
+                <img src="img/Whitman.jpg" class="img-responsive" alt="Marcus Whitman">
             </section>
             <section class="viewing section-opacity" data-scene="end" data-background="img/end.jpg" style="height: 340.38px; width: 0px; padding: 0px;">
                 <div class="fullscreen text-center end-bg-img">
@@ -311,7 +328,21 @@
                 color: "blue",
                 weight: 5,
             })
-        }
+        },
+
+        layer6: {
+            layer: L.geoJson.ajax('Assets/Mosby.geojson', {
+                color: "blue",
+                weight: 5,
+            })
+        },
+
+        layer7: {
+            layer:L.geoJson.ajax('Assets/Cox.geojson', {
+                color: "blue",
+                weight: 5,
+            })
+        },
 
     };
 
@@ -320,8 +351,8 @@
         scene2: {lat: 44, lng: -123.5, zoom:  7, layers: ['layer3', 'layer2'], name: "scene 2"},
         scene3: {lat: 44, lng: -123.5, zoom:  7, layers: ['layer3', 'layer4'], name: "scene 3"},
         scene4: {lat: 45.501075, lng: -122.968480, zoom:  17, layers: ['layer1', 'layer5'], name: "scene 4"},
-        scene5: {lat: 44, lng: -123.5, zoom:  7, layers: ['layer1'], name: "scene 5"},
-        scene6: {lat: 44, lng: -123.5, zoom:  7, layers: ['layer1'], name: "scene 6"}
+        scene5: {lat: 43.781699, lng: -122.999213, zoom:  16, layers: ['layer1', 'layer6'], name: "scene 5"},
+        scene6: {lat: 44.756157, lng: -123.021073, zoom:  16, layers: ['layer1', 'layer7'], name: "scene 6"}
     };
     $('#storymap').storymap({
         scenes: scenes,

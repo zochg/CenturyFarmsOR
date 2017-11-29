@@ -119,6 +119,14 @@
                 <br>The farm is currently run by Smith Cox, the 6th generation of the family.</br>
                 <img src="img/Whitman.jpg" class="img-responsive" alt="Marcus Whitman">
             </section>
+            <section data-scene="scene7">
+                <h2>Smith Bros Farm, LLC.</h2>
+                <br>Originally founded by John and Sara McCoy in 1853 as members of a wagon train coming to Oregon.</br>
+                <br>The farm passed down through generations to become the current 180 acres that can be seen today.</br>
+                <br>Early on, the farm was multi-faceted: many varieties of grains and cereals were farmed, alongside sheep and dairy cattle.</br>
+                <br>Today, the farm is well-known for its grass seed, like many other farms in Oregon</br>
+                <img src="img/grass.jpg" class="img-responsive" alt="Grass Farming in Oregon">
+            </section>
             <section class="viewing section-opacity" data-scene="end" data-background="img/end.jpg" style="height: 340.38px; width: 0px; padding: 0px;">
                 <div class="fullscreen text-center end-bg-img">
                     <br>
@@ -344,6 +352,13 @@
             })
         },
 
+        layer8: {
+            layer:L.geoJson.ajax('Assets/Smith.geojson', {
+                color:"blue",
+                weight: 5,
+            })
+        },
+
     };
 
     var scenes = {
@@ -352,7 +367,8 @@
         scene3: {lat: 44, lng: -123.5, zoom:  7, layers: ['layer3', 'layer4'], name: "scene 3"},
         scene4: {lat: 45.501075, lng: -122.968480, zoom:  17, layers: ['layer1', 'layer5'], name: "scene 4"},
         scene5: {lat: 43.781699, lng: -122.999213, zoom:  16, layers: ['layer1', 'layer6'], name: "scene 5"},
-        scene6: {lat: 44.756157, lng: -123.021073, zoom:  16, layers: ['layer1', 'layer7'], name: "scene 6"}
+        scene6: {lat: 44.756157, lng: -123.021073, zoom:  16, layers: ['layer1', 'layer7'], name: "scene 6"},
+        scene7: {lat: 44.478207, lng: -123.214531, zoom:  15, layers: ['layer1', 'layer8'], name: "scene 7"},
     };
     $('#storymap').storymap({
         scenes: scenes,

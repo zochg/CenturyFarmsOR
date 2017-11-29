@@ -32,6 +32,7 @@
     <!--add favicon for the web page-->
     <link rel="shortcut icon" href="img/farm.ico" type="image/x-icon">
 
+
 </head>
 <body>
 <div class="navbar navbar-inverse navbar-fixed-bottom navbar-toggleable-md" role="navigation">
@@ -210,7 +211,7 @@
     //ABOVE IS NLCD STUFF, BELOW WORKS
 
     //Layer 2 Choropleth ramp and style
-    colors = chroma.scale('Reds').mode('hsl').colors(5);
+    colors = chroma.scale('Blues').mode('hsl').colors(5);
 
     function setColor(Total_Reco) {
         var id = 0;
@@ -228,7 +229,7 @@
             fillOpacity: 0.6,
             weight: 2,
             opacity: 1,
-            color: '#ffffff',
+            color: '#08519c',
             dashArray: '5'
         };
     }
@@ -238,12 +239,12 @@
     function setColor(density){
         //Tenary operation: condition ? valueIfTrue : valueIfFalse
         // condition ? value1 : value2
-        return  density > 77 ? '#b30000' :
-            density > 59 ? '#e34a33' :
-                density > 40 ? '#fc8d59' :
-                    density >  21 ? '#fdcc8a' :
-                        density > 3 ? '#fdf1f6' :
-                        '#fef0d9';
+        return  density > 77 ? '#08519c' :
+            density > 59 ? '#3182bd' :
+                density > 40 ? '#6baed6' :
+                    density >  21 ? '#bdd7e7' :
+                        density > 3 ? '#eff3ff' :
+                        '#ffffff';
     }
 
     // Set style function that sets fill color property equal to percentage farmland
@@ -253,7 +254,7 @@
             fillOpacity: 0.5,
             weight: 2,
             opacity: 0.8,
-            color: '#ffffff',
+            color: '#08519c',
             dashArray: '5'
         };
     }
@@ -315,7 +316,7 @@
                         fillOpacity: 0.6,
                         weight: 2,
                         opacity: 1,
-                        color: '#ffffff',
+                        color: '#08519c',
                         dashArray: '5'
                     }
                 },
@@ -374,10 +375,15 @@
             })
         },
 
+        //NLCD Raster Layer goes here
+        layer9: {
+            layer: L.tileLayer('Assets/nlcdTiles/Mapnik/{z}/{x}/{y}.png')
+        }
+
     };
 
     var scenes = {
-        scene1: {lat: 44, lng: -123.5, zoom:  7, layers: ['layer3'], name: "scene 1"},
+        scene1: {lat: 44, lng: -123.5, zoom:  7, layers: ['layer1', 'layer9'], name: "scene 1"},
         scene2: {lat: 44, lng: -123.5, zoom:  7, layers: ['layer3', 'layer4'], name: "scene 2"},
         scene3: {lat: 44, lng: -123.5, zoom:  7, layers: ['layer3', 'layer2'], name: "scene 3"},
         scene4: {lat: 45.501075, lng: -122.968480, zoom:  17, layers: ['layer1', 'layer5'], name: "scene 4"},

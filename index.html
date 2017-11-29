@@ -48,10 +48,10 @@
                     <a href="javascript:window.scrollBy(0, $('section[data-scene=scene1]').offset().top  - $(window).scrollTop() - $('.navbar').height()  - 10);">Agriculture in OR</a>
                 </li>
                 <li>
-                    <a href="javascript:window.scrollBy(0, $('section[data-scene=scene2]').offset().top  - $(window).scrollTop() - $('.navbar').height()  - 10);">The Century Farm Program</a>
+                    <a href="javascript:window.scrollBy(0, $('section[data-scene=scene2]').offset().top  - $(window).scrollTop() - $('.navbar').height()  - 10);">Farms in Oregon</a>
                 </li>
                 <li>
-                    <a href="javascript:window.scrollBy(0, $('section[data-scene=scene3]').offset().top  - $(window).scrollTop() - $('.navbar').height()  - 10);">Earliest Farms</a>
+                    <a href="javascript:window.scrollBy(0, $('section[data-scene=scene3]').offset().top  - $(window).scrollTop() - $('.navbar').height()  - 10);">The Century Farm Program</a>
                 </li>
                 <li>
                     <a href="javascript:window.scrollBy(0, $('section[data-scene=scene4]').offset().top  - $(window).scrollTop() - $('.navbar').height()  - 10);">Iwasaki Brothers, Inc.</a>
@@ -85,15 +85,12 @@
             <section data-scene="scene1">
                 <h2>Oregon's Agriculture</h2>
                 <br>Oregon is a bountiful state.</br>
-                <!--<img src="" class="img-thumbnail" alt="">-->
             </section>
             <section data-scene="scene2">
-                <h2>The Oregon Century Farm Program</h2>
-                <!--<img src="img/hiking.jpg" class="img-responsive" alt="Hiking in the bush">-->
+                <h2>Farming in Oregon</h2>
             </section>
             <section data-scene="scene3">
-                <h2>Earliest Farms in Oregon</h2>
-                <!--<img src="img/kedougou.jpg" class="img-responsive" alt="A boutique in Kedougou">-->
+                <h2>Oregon's Century Farm Program</h2>
             </section>
             <section data-scene="scene4">
                 <h2>Iwasaki Brothers, Inc.</h2>
@@ -212,7 +209,8 @@
 
     //ABOVE IS NLCD STUFF, BELOW WORKS
 
-    colors = chroma.scale('Blues').mode('hsl').colors(5);
+    //Layer 2 Choropleth ramp and style
+    colors = chroma.scale('Reds').mode('hsl').colors(5);
 
     function setColor(Total_Reco) {
         var id = 0;
@@ -223,16 +221,6 @@
         else { id = 0; }
         return colors[id];
     }
-
-//    function setColor(Earliest_F) {
-//        var id = 0;
-//        if (Earliest_F > 1878) { id = 4; }
-//        else if (Earliest_F > 1864 && Earliest_F <= 1878) { id = 3; }
-//        else if (Earliest_F > 1850 && Earliest_F <= 1864) { id = 2; }
-//        else if (Earliest_F > 1839 && Earliest_F <= 1850) { id = 1; }
-//        else { id = 0; }
-//        return colors[id];
-//    }
 
     function style(feature) {
         return {
@@ -245,17 +233,34 @@
         };
     }
 
-//    function style(feature) {
-//        return {
-//            fillColor: setColor(feature.properties.Earliest_F),
-//            fillOpacity: 0.6,
-//            weight: 2,
-//            opacity: 1,
-//            color: '#ffffff',
-//            dashArray: '5'
-//        };
-//    }
+    //Farms in County Choropleth and style
 
+    function setColor(density){
+        //Tenary operation: condition ? valueIfTrue : valueIfFalse
+        // condition ? value1 : value2
+        return  density > 77 ? '#b30000' :
+            density > 59 ? '#e34a33' :
+                density > 40 ? '#fc8d59' :
+                    density >  21 ? '#fdcc8a' :
+                        density > 3 ? '#fdf1f6' :
+                        '#fef0d9';
+    }
+
+    // Set style function that sets fill color property equal to percentage farmland
+    function style(feature) {
+        return {
+            fillColor: setColor(feature.properties.farmland),
+            fillOpacity: 0.5,
+            weight: 2,
+            opacity: 0.8,
+            color: '#ffffff',
+            dashArray: '5'
+        };
+    }
+
+
+
+    //Interactive functions
     function highlightFeature(e) {
         var layer=e.target;
 
@@ -301,12 +306,20 @@
         layer1: {
             layer: L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'),
         },
-        //Farms by County
+        //Century Farms by County
         layer2: {
             layer: L.geoJson.ajax('Assets/CountiesSimplified.geojson', {
-                style: style,
-                weight: 5,
-                onEachFeature: onEachFeature,
+                style: function (feature) {
+                    return {
+                        fillColor: setColor(feature.properties.Total_Reco),
+                        fillOpacity: 0.6,
+                        weight: 2,
+                        opacity: 1,
+                        color: '#ffffff',
+                        dashArray: '5'
+                    }
+                },
+                onEachFeature: onEachFeature
             }),
             legend: '<p><b>Century Farms per County</b></p>' +
             '<i style="background: ' + colors[4] + '; opacity: 0.5"></i><p><b>68+</b></p>' +
@@ -319,18 +332,20 @@
         layer3: {
             layer: L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiamFrb2J6aGFvIiwiYSI6ImNpcms2YWsyMzAwMmtmbG5icTFxZ3ZkdncifQ.P9MBej1xacybKcDN_jehvw', {id: 'mapbox.outdoors'})
         },
-//        layer4: {
-//            layer: L.geoJson.ajax('Assets/CountiesSimplified.geojson', {
-//                style: style,
-//                weight: 5
-//            }),
-//            legend: '<p><b>Earliest Farm by County</b></p>' +
-//            '<i style="background: ' + colors[4] + '; opacity: 0.5"></i><p><b>1878+</b></p>' +
-//            '<i style="background: ' + colors[3] + '; opacity: 0.5"></i><p><b>1864-1878</b></p>' +
-//            '<i style="background: ' + colors[2] + '; opacity: 0.5"></i><p><b>1850-1864</b></p>' +
-//            '<i style="background: ' + colors[1] + '; opacity: 0.5"></i><p><b>1840-1850</b></p>' +
-//            '<i style="background: ' + colors[0] + '; opacity: 0.5"></i><p><b>None</b></p>',
-//        }
+        //Percent Farms in Counties
+        layer4: {
+            layer: L.geoJson.ajax('Assets/FarmInCounty.geojson', {
+                style: style,
+                weight: 5,
+            }),
+            legend: '<p><b>Percent of all farms by County</b></p>' +
+            '<i style="background: ' + colors[4] + '; opacity: 0.5"></i><p><b>77-96</b></p>' +
+            '<i style="background: ' + colors[3] + '; opacity: 0.5"></i><p><b>59-76</b></p>' +
+            '<i style="background: ' + colors[2] + '; opacity: 0.5"></i><p><b>40-58</b></p>' +
+            '<i style="background: ' + colors[1] + '; opacity: 0.5"></i><p><b>21-39</b></p>' +
+            '<i style="background: ' + colors[0] + '; opacity: 0.5"></i><p><b>3-20</b></p>',
+        },
+
         layer5: {
             layer:L.geoJson.ajax('Assets/Iwasaki.geojson', {
                 color: "blue",
@@ -363,8 +378,8 @@
 
     var scenes = {
         scene1: {lat: 44, lng: -123.5, zoom:  7, layers: ['layer3'], name: "scene 1"},
-        scene2: {lat: 44, lng: -123.5, zoom:  7, layers: ['layer3', 'layer2'], name: "scene 2"},
-        scene3: {lat: 44, lng: -123.5, zoom:  7, layers: ['layer3', 'layer4'], name: "scene 3"},
+        scene2: {lat: 44, lng: -123.5, zoom:  7, layers: ['layer3', 'layer4'], name: "scene 2"},
+        scene3: {lat: 44, lng: -123.5, zoom:  7, layers: ['layer3', 'layer2'], name: "scene 3"},
         scene4: {lat: 45.501075, lng: -122.968480, zoom:  17, layers: ['layer1', 'layer5'], name: "scene 4"},
         scene5: {lat: 43.781699, lng: -122.999213, zoom:  16, layers: ['layer1', 'layer6'], name: "scene 5"},
         scene6: {lat: 44.756157, lng: -123.021073, zoom:  16, layers: ['layer1', 'layer7'], name: "scene 6"},

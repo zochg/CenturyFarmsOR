@@ -35,7 +35,7 @@
 
 </head>
 <body>
-<div class="navbar navbar-inverse navbar-fixed-bottom navbar-toggleable-md" role="navigation">
+<div class="navbar navbar-inverse navbar-fixed-top navbar-toggleable-md" role="navigation">
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -58,11 +58,23 @@
                     <a href="javascript:window.scrollBy(0, $('section[data-scene=scene4]').offset().top  - $(window).scrollTop() - $('.navbar').height()  - 10);">Iwasaki Brothers, Inc.</a>
                 </li>
                 <li>
-                    <a href="javascript:window.scrollBy(0, $('section[data-scene=scene5]').offset().top  - $(window).scrollTop() - $('.navbar').height()  - 10);">The Mosby Farm</a>
+                    <a class="fa fa-facebook-square"
+                       href="https://facebook.com/sharer.php?u=https://github.com/zochg/CenturyFarmsOR/"
+                       target="_blank"></a>
                 </li>
                 <li>
-                    <a href="javascript:window.scrollBy(0, $('section[data-scene=scene6]').offset().top  - $(window).scrollTop() - $('.navbar').height()  - 10);">Jesse and Ruby Looney Farm</a>
+                    <a class="fa fa-git-square" href="https://github.com/zochg/CenturyFarmsOR/"
+                       target="_blank"></a>
                 </li>
+                <li>
+                    <a class="fa fa-file-text-o" data-toggle="modal" data-target="#info-modal"></a>
+                </li>
+                <!--<li>-->
+                    <!--<a href="javascript:window.scrollBy(0, $('section[data-scene=scene5]').offset().top  - $(window).scrollTop() - $('.navbar').height()  - 10);">The Mosby Farm</a>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<a href="javascript:window.scrollBy(0, $('section[data-scene=scene6]').offset().top  - $(window).scrollTop() - $('.navbar').height()  - 10);">Jesse and Ruby Looney Farm</a>-->
+                <!--</li>-->
             </ul>
         </div>
         <!-- /.navbar-collapse -->
@@ -158,23 +170,6 @@
         </div>
         <div class="col-sm-6 col-md-8 storymap-map"></div>
     </div>
-    <dl>
-        <dt>
-            <!--facebook icon-->
-            <a class="fa fa-facebook-square btn"
-               href="https://facebook.com/sharer.php?u=https://github.com/zochg/CenturyFarmsOR/"
-               target="_blank"></a>
-        </dt>
-        <dt>
-            <!--facebook icon-->
-            <a class="fa fa-git-square btn" href="https://github.com/zochg/CenturyFarmsOR/" style="top:40px"
-               target="_blank"></a>
-        </dt>
-        <dt>
-            <!--info icon-->
-            <i class="fa fa-file-text-o btn" style="top:60px" data-toggle="modal" data-target="#info-modal"></i>
-        </dt>
-    </dl>
     <!--the info page-->
     <div class="modal fade" id="info-modal" role="dialog">
         <div class="modal-dialog modal-md">
@@ -267,14 +262,12 @@
             layer.bringToFront();
         }
 
-        //info.update(layer.feature.properties);
 
     }
 
 
     function resetHighlight(e) {
         layers.layer2.layer.resetStyle(e.target);
-        //info.update();
     }
 
     //this function isn't working
@@ -339,7 +332,7 @@
         },
 
         layer5: {
-            layer:L.geoJson.ajax('Assets/Iwasaki.geojson', {
+            layer: L.geoJson.ajax('Assets/Iwasaki.geojson', {
                 color: "blue",
                 weight: 5,
             })
@@ -353,15 +346,15 @@
         },
 
         layer7: {
-            layer:L.geoJson.ajax('Assets/Cox.geojson', {
+            layer: L.geoJson.ajax('Assets/Cox.geojson', {
                 color: "blue",
                 weight: 5,
             })
         },
 
         layer8: {
-            layer:L.geoJson.ajax('Assets/Smith.geojson', {
-                color:"blue",
+            layer: L.geoJson.ajax('Assets/Smith.geojson', {
+                color: "blue",
                 weight: 5,
             })
         },
@@ -370,23 +363,23 @@
         layer9: {
             layer: L.tileLayer('Assets/nlcdTiles/Mapnik/{z}/{x}/{y}.png'),
             legend: '<p><b>NLCD Land Cover Classes</b></p>' +
-                '<i style="background: #1c1c1c; opacity: 1"></i><p><b>Unclassified</b></p>' +
-                '<i style="background: #0d3a6a; opacity: 1"></i><p><b>Open Water</b></p>' +
-                '<i style="background: #b1c1ff; opacity: 1"></i><p><b>Perennial Snow/Ice</b></p>' +
-                '<i style="background: #c46264; opacity: 1"></i><p><b>Developed, Open Space</b></p>' +
-                '<i style="background: #e44e51; opacity: 1"></i><p><b>Developed, Low Intensity</b></p>' +
-                '<i style="background: #ff1418; opacity: 1"></i><p><b>Developed, Medium Intensity</b></p>' +
-                '<i style="background: #9d0508; opacity: 1"></i><p><b>Developed, High Intensity</b></p>' +
-                '<i style="background: #8e8e8e; opacity: 1"></i><p><b>Barren Land</b></p>' +
-                '<i style="background: #49903a; opacity: 1"></i><p><b>Deciduous Forest</b></p>' +
-                '<i style="background: #0c6d0a; opacity: 1"></i><p><b>Evergreen Forest</b></p>' +
-                '<i style="background: #87ae48; opacity: 1"></i><p><b>Mixed Forest</b></p>' +
-                '<i style="background: #c9a05d; opacity: 1"></i><p><b>Shrub/Scrub</b></p>' +
-                '<i style="background: #d4c389; opacity: 1"></i><p><b>Herbaceaous</b></p>' +
-                '<i style="background: #dcd906; opacity: 1"></i><p><b>Hay/Pasture</b></p>' +
-                '<i style="background: #9a4a00; opacity: 1"></i><p><b>Cultivated Crops</b></p>' +
-                '<i style="background: #8dbae4; opacity: 1"></i><p><b>Woody Wetlands</b></p>' +
-                '<i style="background: #1f7bad; opacity: 1"></i><p><b>Emergent Herbaceeaous Wetlands</b></p>',
+            '<i style="background: #1c1c1c; opacity: 1"></i><p><b>Unclassified</b></p>' +
+            '<i style="background: #0d3a6a; opacity: 1"></i><p><b>Open Water</b></p>' +
+            '<i style="background: #b1c1ff; opacity: 1"></i><p><b>Perennial Snow/Ice</b></p>' +
+            '<i style="background: #c46264; opacity: 1"></i><p><b>Developed, Open Space</b></p>' +
+            '<i style="background: #e44e51; opacity: 1"></i><p><b>Developed, Low Intensity</b></p>' +
+            '<i style="background: #ff1418; opacity: 1"></i><p><b>Developed, Medium Intensity</b></p>' +
+            '<i style="background: #9d0508; opacity: 1"></i><p><b>Developed, High Intensity</b></p>' +
+            '<i style="background: #8e8e8e; opacity: 1"></i><p><b>Barren Land</b></p>' +
+            '<i style="background: #49903a; opacity: 1"></i><p><b>Deciduous Forest</b></p>' +
+            '<i style="background: #0c6d0a; opacity: 1"></i><p><b>Evergreen Forest</b></p>' +
+            '<i style="background: #87ae48; opacity: 1"></i><p><b>Mixed Forest</b></p>' +
+            '<i style="background: #c9a05d; opacity: 1"></i><p><b>Shrub/Scrub</b></p>' +
+            '<i style="background: #d4c389; opacity: 1"></i><p><b>Herbaceaous</b></p>' +
+            '<i style="background: #dcd906; opacity: 1"></i><p><b>Hay/Pasture</b></p>' +
+            '<i style="background: #9a4a00; opacity: 1"></i><p><b>Cultivated Crops</b></p>' +
+            '<i style="background: #8dbae4; opacity: 1"></i><p><b>Woody Wetlands</b></p>' +
+            '<i style="background: #1f7bad; opacity: 1"></i><p><b>Emergent Herbaceeaous Wetlands</b></p>',
 
         },
 
@@ -410,13 +403,36 @@
                 weight: 5,
             })
         },
-
     };
+
+    var marker1 = L.marker([45.501075, -122.968480]).on('click', onClick);
+    function onClick(e) {this.$('section[data-scene=scene3]')}
+    marker1.addTo(layers.layer2.layer).bindTooltip('Iwasaki Bros. Inc.');
+
+    var marker2 = L.marker([43.781699, -122.999213]).on('click', onClick);
+    function onClick(e) {this.$('section[data-scene=scene]')}
+    marker2.addTo(layers.layer2.layer).bindTooltip('Mosby Century Farm');
+
+    var marker3 = L.marker([44.756157, -123.021073]).on('click', onClick);
+    function onClick(e) {this.$('section[data-scene=scene3]')}
+    marker3.addTo(layers.layer2.layer).bindTooltip('Jesse and Ruby Looney Farm');
+
+    var marker4 = L.marker([44.478207, -123.214531]).on('click', onClick);
+    function onClick(e) {this.$('section[data-scene=scene3]')}
+    marker4.addTo(layers.layer2.layer).bindTooltip('Smith Bros. Farm LLC');
+
+    var marker5 = L.marker([45.088906, -123.165365]).on('click', onClick);
+    function onClick(e) {this.$('section[data-scene=scene3]')}
+    marker5.addTo(layers.layer2.layer).bindTooltip('Cattrall Brothers vineyard');
+
+    var marker6 = L.marker([45.189486, -122.784693]).on('click', onClick);
+    function onClick(e) {this.$('section[data-scene=scene3]')}
+    marker6.addTo(layers.layer2.layer).bindTooltip('Stauffard Farms Inc.');
 
     var scenes = {
         scene1: {lat: 44, lng: -123.5, zoom:  7, layers: ['layer1', 'layer9', 'layer10'], name: "scene 1"},
         scene2: {lat: 44, lng: -123.5, zoom:  7, layers: ['layer3', 'layer4'], name: "scene 2"},
-        scene3: {lat: 44, lng: -123.5, zoom:  7, layers: ['layer3', 'layer2'], name: "scene 3"},
+        scene3: {lat: 44, lng: -123.5, zoom:  7, layers: ['layer3', 'layer2', 'layer13'], name: "scene 3"},
         scene4: {lat: 45.501075, lng: -122.968480, zoom:  17, layers: ['layer1', 'layer5'], name: "scene 4"},
         scene5: {lat: 43.781699, lng: -122.999213, zoom:  16, layers: ['layer1', 'layer6'], name: "scene 5"},
         scene6: {lat: 44.756157, lng: -123.021073, zoom:  16, layers: ['layer1', 'layer7'], name: "scene 6"},
@@ -438,7 +454,7 @@
         navwidget: true,
         navbar: true,
         createMap: function () {
-            var map = L.map($(".storymap-map")[0], {zoomControl: false}).setView([44, -123.5], 1);
+            var map = L.map($(".storymap-map")[0], {zoomControl: false}).setView([44, -123.5], 4);
             basemap = this.baselayer.layer.addTo(map);
             return map;
         }

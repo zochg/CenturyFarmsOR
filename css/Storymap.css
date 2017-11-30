@@ -272,7 +272,7 @@ video {
     width: 250px;
     z-index: 1000;
     right: 20px;
-    top: 30px;
+    top: 60px;
     display: none;
     color: #333333;
     font-family: Cairo, sans-serif;
@@ -335,7 +335,7 @@ nav li a,
     margin-bottom: 5px;
     color: rgba(169, 169, 169, 0.8);
     z-index: 1005;
-    top: 20px;
+    top: 150px;
     left: 5px;
 }
 

@@ -105,7 +105,6 @@
                 <br>Since the beginning of the program in 1958, 1,181 farms have been recognized as Century farms. Additionally, there are also 38 farms which have earned the designation of Sesquicentennial farms, having been in operation for more than 150 years.</br>
                 <br>Century Farms are important for remembering Oregon's contemporary agricultural heritage. Farmers are as diverse as the state is, representing immigrants, homesteaders, and entrepreneurs.</br>
                 <img src="img/CenturySign.jpg" class="img-responsive" alt="Century Farm Sign">
-                <br></br>
             </section>
             <section data-scene="scene4">
                 <h2>Iwasaki Brothers, Inc.</h2>
@@ -146,6 +145,9 @@
                 <br>Bill planted some grape cuttings in 1973, and the vineyard took off. It is now the oldest operating organic certified vineyard in Oregon.</br>
                 <img src="img/Cattrall.PNG" class="img-responsive" alt="Cattralls Picking Strawberries">
                 <small>Information and photo from <a href="http://michaelmalinsky.wix.com/cattrallbros#!">Cattrall Brothers Vineyard</a></small>
+            </section>
+            <section data-scene="scene9">
+                <h2>Stauffard Farms, Inc.</h2>
             </section>
             <section class="viewing section-opacity" data-scene="end" data-background="img/end.jpg" style="height: 340.38px; width: 0px; padding: 0px;">
                 <div class="fullscreen text-center end-bg-img">
@@ -400,7 +402,14 @@
                 color: "blue",
                 weight: 5,
             })
-        }
+        },
+
+        layer12: {
+            layer: L.geoJson.ajax('Assets/Stauffard.geojson', {
+                color: "blue",
+                weight: 5,
+            })
+        },
 
     };
 
@@ -413,6 +422,7 @@
         scene6: {lat: 44.756157, lng: -123.021073, zoom:  16, layers: ['layer1', 'layer7'], name: "scene 6"},
         scene7: {lat: 44.478207, lng: -123.214531, zoom:  15, layers: ['layer1', 'layer8'], name: "scene 7"},
         scene8: {lat: 45.088906, lng: -123.165365, zoom:  16, layers: ['layer1', 'layer11'], name: "scene 8"},
+        scene9: {lat: 45.189486, lng: -122.784693, zoom:  16, layers: ['layer1', 'layer12'], name: "scene 9"},
     };
     $('#storymap').storymap({
         scenes: scenes,

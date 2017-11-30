@@ -85,13 +85,27 @@
             </section>
             <section data-scene="scene1">
                 <h2>Oregon's Agriculture</h2>
-                <br>Oregon is a bountiful state.</br>
+                <br>Oregon's agricultural sector is incredibly diverse, as well as famous. In 2015, Oregon's agricultural exports totaled nearly $1.9 billion. Nearly $1 billion came from seeds, oilseeds, and other horticulture alone -- proving that Oregon really is the grass seed capital of the world.</br>
+                <br>The Willamette Valley, outlined in yellow, is one of the most agriculturally diverse locations in the state, if not the country. More than 170 different crops are produced in the Willamette valley alone, including wine grapes, marionberries, grass seed, and beef cows.</br>
+                <br>Apart from being #1 in grass seed production, Oregon is also first in the nation in the production of blackberries, hazelnuts, Christmas trees, and sugarbeet seeds.</br>
+                <img src="img/ODAlogo.png" class="img-responsive" alt="Oregon Department of Agriculture Logo">
+                <small>Information from the <a href="http://www.oregon.gov/ODA/shared/Documents/Publications/Administration/ORAgFactsFigures.pdf">Oregon Department of Agriculture</a></small>
             </section>
             <section data-scene="scene2">
                 <h2>Farming in Oregon</h2>
+                <br>As of 2016, Oregon could claim 34,400 operating farms, with over 16,300,000 acres used for cultivation -- that's nearly 26% of Oregon's total land area.</br>
+                <br>The majority of this farm land is located in the Columbia Plateau, Oregon's breadbasket, where wheat is the dominant crop. The proximity of the Columbia river has allowed for extensive irrigation into what was once sagebrush.</br>
+                <br>More than 75% of Oregon's farms, however, are less than 180 acres apiece. Additionally, 84% of all farms are individually owned, meaning that farming in Oregon is very much a family affair.</br>
+                <img src="img/Farms.jpg" class="img-responsive" alt="Wheat farming in Oregon">
+                <small>Information from the <a href="http://www.oregon.gov/ODA/shared/Documents/Publications/Administration/ORAgFactsFigures.pdf">Oregon Department of Agriculture</a></small>
             </section>
             <section data-scene="scene3">
                 <h2>Oregon's Century Farm Program</h2>
+                <br>Oregon's Century Farm Program is a way to recognize the longevity and importance of these family farms. This program recognizes and honors those farms and ranches in Oregon which have been in contiunous operation for more than 100 years</br>
+                <br>Since the beginning of the program in 1958, 1,181 farms have been recognized as Century farms. Additionally, there are also 38 farms which have earned the designation of Sesquicentennial farms, having been in operation for more than 150 years.</br>
+                <br>Century Farms are important for remembering Oregon's contemporary agricultural heritage. Farmers are as diverse as the state is, representing immigrants, homesteaders, and entrepreneurs.</br>
+                <img src="img/CenturySign.jpg" class="img-responsive" alt="Century Farm Sign">
+                <br></br>
             </section>
             <section data-scene="scene4">
                 <h2>Iwasaki Brothers, Inc.</h2>
@@ -124,6 +138,14 @@
                 <br>Early on, the farm was multi-faceted: many varieties of grains and cereals were farmed, alongside sheep and dairy cattle.</br>
                 <br>Today, the farm is well-known for its grass seed, like many other farms in Oregon</br>
                 <img src="img/grass.jpg" class="img-responsive" alt="Grass Farming in Oregon">
+            </section>
+            <section data-scene="scene8">
+                <h2>Cattrall Brothers Vineyard</h2>
+                <br>The Cattrall farm was originally established in 1916 by John Celestin Sartore, an Italian immigrant. Originally, the farm produced strawberries, dairy cows, chickens, and pigs.</br>
+                <br>John's sister's grandchildren, Bill and Tom Cattrall, took over the farm in 1971. Bill was stationed in Italy himself at an Army post, and came back to America with a passion to grow wine.</br>
+                <br>Bill planted some grape cuttings in 1973, and the vineyard took off. It is now the oldest operating organic certified vineyard in Oregon.</br>
+                <img src="img/Cattrall.PNG" class="img-responsive" alt="Cattralls Picking Strawberries">
+                <small>Information and photo from <a href="http://michaelmalinsky.wix.com/cattrallbros#!">Cattrall Brothers Vineyard</a></small>
             </section>
             <section class="viewing section-opacity" data-scene="end" data-background="img/end.jpg" style="height: 340.38px; width: 0px; padding: 0px;">
                 <div class="fullscreen text-center end-bg-img">
@@ -166,49 +188,16 @@
                     </p>
                     <p>The <a href="https://www.youtube.com/watch?v=GshpFSwoNb4">Background video</a> on the front page
                         was clipped from Youtube</p>
-                    <p>This story map uses geospatial data from mapbox, Google Earth Engine, ESRI Map, Open Street Maps, the USDA,
+                    <p>This story map uses geospatial data from mapbox, ESRI Map, the USDA, the Oregon Department of Agriculture, Oregon Explorer,
                         and github.</p>
                     <p>Century Farm information can be found <a href="http://oregonfb.org/wp-content/uploads/2017/08/2017_family_arratives.pdf">here</a>and <a href="http://oregonfb.org/wp-content/uploads/2016/08/082016cfr.pdf">here</a></p>
+                    <p>Agricultural information can be found at the <a href="http://www.oregon.gov/ODA/shared/Documents/Publications/Administration/ORAgFactsFigures.pdf">Oregon Department of Agriculture</a></p>
                 </div>
             </div>
         </div>
     </div>
 </div>
 <script type="text/javascript">
-
-    //BELOW HERE IS HOPEFULLY THE NLCD LAYER
-
-    $(document).ready(function () {
-        $("#basemapslider").slider({
-            animate: true,
-            value: 1,
-            orientation: "vertical",
-            min: 0,
-            max: 1,
-            step: 0.1,
-            slide: function (event, ui) {
-                mytile.setOpacity(ui.value);
-            }
-        });
-
-        $('#basemapslider').mousedown(function(){
-            map.dragging.disable();
-        });
-
-        $('#basemapslider').mouseup(function(){
-            map.dragging.enable();
-        });
-
-        var mytile =L.tileLayer('nlcd/{z}/{x}/{y}.png', {
-            maxZoom: 10,
-            tms: false,
-            attribution: 'Generated by QTiles, Data From <a target="_blank" href="http://spatialdata.oregonexplorer.info/geoportal/details;id=81916ee1b2b741c0aacb814ee8e73af9">Oregon Spatial Data Library</a>'
-        }).addTo(layers);
-
-        L.control.layers({'Basemap':layers.layer3.layer},{'nlcd':mytile}).addTo(layers);
-    })
-
-    //ABOVE IS NLCD STUFF, BELOW WORKS
 
     //Layer 2 Choropleth ramp and style
     colors = chroma.scale('Blues').mode('hsl').colors(5);
@@ -339,7 +328,7 @@
                 style: style,
                 weight: 5,
             }),
-            legend: '<p><b>Percent of all farms by County</b></p>' +
+            legend: '<p><b>Percent of land used for farming per County</b></p>' +
             '<i style="background: ' + colors[4] + '; opacity: 0.5"></i><p><b>77-96</b></p>' +
             '<i style="background: ' + colors[3] + '; opacity: 0.5"></i><p><b>59-76</b></p>' +
             '<i style="background: ' + colors[2] + '; opacity: 0.5"></i><p><b>40-58</b></p>' +
@@ -377,19 +366,53 @@
 
         //NLCD Raster Layer goes here
         layer9: {
-            layer: L.tileLayer('Assets/nlcdTiles/Mapnik/{z}/{x}/{y}.png')
+            layer: L.tileLayer('Assets/nlcdTiles/Mapnik/{z}/{x}/{y}.png'),
+            legend: '<p><b>NLCD Land Cover Classes</b></p>' +
+                '<i style="background: #1c1c1c; opacity: 1"></i><p><b>Unclassified</b></p>' +
+                '<i style="background: #0d3a6a; opacity: 1"></i><p><b>Open Water</b></p>' +
+                '<i style="background: #b1c1ff; opacity: 1"></i><p><b>Perennial Snow/Ice</b></p>' +
+                '<i style="background: #c46264; opacity: 1"></i><p><b>Developed, Open Space</b></p>' +
+                '<i style="background: #e44e51; opacity: 1"></i><p><b>Developed, Low Intensity</b></p>' +
+                '<i style="background: #ff1418; opacity: 1"></i><p><b>Developed, Medium Intensity</b></p>' +
+                '<i style="background: #9d0508; opacity: 1"></i><p><b>Developed, High Intensity</b></p>' +
+                '<i style="background: #8e8e8e; opacity: 1"></i><p><b>Barren Land</b></p>' +
+                '<i style="background: #49903a; opacity: 1"></i><p><b>Deciduous Forest</b></p>' +
+                '<i style="background: #0c6d0a; opacity: 1"></i><p><b>Evergreen Forest</b></p>' +
+                '<i style="background: #87ae48; opacity: 1"></i><p><b>Mixed Forest</b></p>' +
+                '<i style="background: #c9a05d; opacity: 1"></i><p><b>Shrub/Scrub</b></p>' +
+                '<i style="background: #d4c389; opacity: 1"></i><p><b>Herbaceaous</b></p>' +
+                '<i style="background: #dcd906; opacity: 1"></i><p><b>Hay/Pasture</b></p>' +
+                '<i style="background: #9a4a00; opacity: 1"></i><p><b>Cultivated Crops</b></p>' +
+                '<i style="background: #8dbae4; opacity: 1"></i><p><b>Woody Wetlands</b></p>' +
+                '<i style="background: #1f7bad; opacity: 1"></i><p><b>Emergent Herbaceeaous Wetlands</b></p>',
+
+        },
+
+        layer10: {
+            layer: L.geoJson.ajax('Assets/Willamette.geojson', {
+                color: "yellow",
+                weight: 4,
+            })
+        },
+
+        layer11: {
+            layer: L.geoJson.ajax('Assets/Cattrall.geojson', {
+                color: "blue",
+                weight: 5,
+            })
         }
 
     };
 
     var scenes = {
-        scene1: {lat: 44, lng: -123.5, zoom:  7, layers: ['layer1', 'layer9'], name: "scene 1"},
+        scene1: {lat: 44, lng: -123.5, zoom:  7, layers: ['layer1', 'layer9', 'layer10'], name: "scene 1"},
         scene2: {lat: 44, lng: -123.5, zoom:  7, layers: ['layer3', 'layer4'], name: "scene 2"},
         scene3: {lat: 44, lng: -123.5, zoom:  7, layers: ['layer3', 'layer2'], name: "scene 3"},
         scene4: {lat: 45.501075, lng: -122.968480, zoom:  17, layers: ['layer1', 'layer5'], name: "scene 4"},
         scene5: {lat: 43.781699, lng: -122.999213, zoom:  16, layers: ['layer1', 'layer6'], name: "scene 5"},
         scene6: {lat: 44.756157, lng: -123.021073, zoom:  16, layers: ['layer1', 'layer7'], name: "scene 6"},
         scene7: {lat: 44.478207, lng: -123.214531, zoom:  15, layers: ['layer1', 'layer8'], name: "scene 7"},
+        scene8: {lat: 45.088906, lng: -123.165365, zoom:  16, layers: ['layer1', 'layer11'], name: "scene 8"},
     };
     $('#storymap').storymap({
         scenes: scenes,

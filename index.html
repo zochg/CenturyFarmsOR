@@ -39,8 +39,7 @@
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-
-            <a class="navbar-brand" href="#">Century Farms of Oregon</a>
+            <a class="navbar-brand" href="https://zochg.github.io/CenturyFarmsOR/index.html">Century Farms of Oregon</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse">
@@ -54,8 +53,16 @@
                 <li>
                     <a href="javascript:window.scrollBy(0, $('section[data-scene=scene3]').offset().top  - $(window).scrollTop() - $('.navbar').height()  - 10);">The Century Farm Program</a>
                 </li>
-                <li>
-                    <a href="javascript:window.scrollBy(0, $('section[data-scene=scene4]').offset().top  - $(window).scrollTop() - $('.navbar').height()  - 10);">Iwasaki Brothers, Inc.</a>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:window.scrollBy(0, $('section[data-scene=scene3]').offset().top  - $(window).scrollTop() - $('.navbar').height()  - 10);">The Farms<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="javascript:window.scrollBy(0, $('section[data-scene=scene4]').offset().top  - $(window).scrollTop() - $('.navbar').height()  - 10);">Iwasaki Brothers, Inc.</a></li>
+                        <li><a href="javascript:window.scrollBy(0, $('section[data-scene=scene5]').offset().top  - $(window).scrollTop() - $('.navbar').height()  - 10);">The Mosby Century Farm</a></li>
+                        <li><a href="javascript:window.scrollBy(0, $('section[data-scene=scene6]').offset().top  - $(window).scrollTop() - $('.navbar').height()  - 10);">Jesse and Ruby Looney Farm</a></li>
+                        <li><a href="javascript:window.scrollBy(0, $('section[data-scene=scene7]').offset().top  - $(window).scrollTop() - $('.navbar').height()  - 10);">Smith Bros. Farm, Inc.</a></li>
+                        <li><a href="javascript:window.scrollBy(0, $('section[data-scene=scene8]').offset().top  - $(window).scrollTop() - $('.navbar').height()  - 10);">Cattrall Brothers Vineyard</a></li>
+                        <li><a href="javascript:window.scrollBy(0, $('section[data-scene=scene9]').offset().top  - $(window).scrollTop() - $('.navbar').height()  - 10);">Stauffard Farms, Inc.</a></li>
+                    </ul>
                 </li>
                 <li>
                     <a class="fa fa-facebook-square"
@@ -69,12 +76,6 @@
                 <li>
                     <a class="fa fa-file-text-o" data-toggle="modal" data-target="#info-modal"></a>
                 </li>
-                <!--<li>-->
-                    <!--<a href="javascript:window.scrollBy(0, $('section[data-scene=scene5]').offset().top  - $(window).scrollTop() - $('.navbar').height()  - 10);">The Mosby Farm</a>-->
-                <!--</li>-->
-                <!--<li>-->
-                    <!--<a href="javascript:window.scrollBy(0, $('section[data-scene=scene6]').offset().top  - $(window).scrollTop() - $('.navbar').height()  - 10);">Jesse and Ruby Looney Farm</a>-->
-                <!--</li>-->
             </ul>
         </div>
         <!-- /.navbar-collapse -->
@@ -86,14 +87,14 @@
         <div class="col-sm-6 col-md-8 storymap-story">
             <section class="viewing section-opacity" data-scene="overview" data-background="Assets/Farming.mp4" style="height: 328.17px; width:0px; padding: 0px;">
                 <div class="fullscreen text-center">
-                    <h1>Century Farms in Oregon</h1>
+                    <h1>Century Farms of Oregon</h1>
                     <h1>
                         <small style="color: rgba(255,255,255,0.95)"> The Century Farm program is an important way of preserving Oregon's rich agricultural history and heritage. This story map is intended to demonstrate Oregon's agricultural history.
+                            <br>In understanding the history and importance of small family farms in Oregon, they can be celebrated, safeguarded, and emulated.
+                            <small><br>By: Grant Zoch</small>
                         </small>
                     </h1>
                 </div>
-            </section>
-            <section>
             </section>
             <section data-scene="scene1">
                 <h2>Oregon's Agriculture</h2>
@@ -209,43 +210,15 @@
         return colors[id];
     }
 
-    function style(feature) {
-        return {
-            fillColor: setColor(feature.properties.Total_Reco),
-            fillOpacity: 0.6,
-            weight: 2,
-            opacity: 1,
-            color: '#08519c',
-            dashArray: '5'
-        };
+    function setColor(farmland) {
+        var id = 0;
+        if (farmland > 77) {id = 4;}
+        else if (farmland > 59 && farmland <= 77) {id = 3; }
+        else if (farmland > 40 && farmland <= 59) {id = 2; }
+        else if (farmland > 21 && farmland <= 40) {id = 1; }
+        else {id = 0; }
+        return colors[id];
     }
-
-    //Farms in County Choropleth and style
-
-    function setColor(density){
-        //Tenary operation: condition ? valueIfTrue : valueIfFalse
-        // condition ? value1 : value2
-        return  density > 77 ? '#08519c' :
-            density > 59 ? '#3182bd' :
-                density > 40 ? '#6baed6' :
-                    density >  21 ? '#bdd7e7' :
-                        density > 3 ? '#eff3ff' :
-                        '#ffffff';
-    }
-
-    // Set style function that sets fill color property equal to percentage farmland
-    function style(feature) {
-        return {
-            fillColor: setColor(feature.properties.farmland),
-            fillOpacity: 0.5,
-            weight: 2,
-            opacity: 0.8,
-            color: '#08519c',
-            dashArray: '5'
-        };
-    }
-
-
 
     //Interactive functions
     function highlightFeature(e) {
@@ -304,7 +277,7 @@
                         dashArray: '5'
                     }
                 },
-                onEachFeature: onEachFeature
+                onEachFeature: onEachFeature,
             }),
             legend: '<p><b>Century Farms per County</b></p>' +
             '<i style="background: ' + colors[4] + '; opacity: 0.5"></i><p><b>68+</b></p>' +
@@ -320,8 +293,15 @@
         //Percent Farms in Counties
         layer4: {
             layer: L.geoJson.ajax('Assets/FarmInCounty.geojson', {
-                style: style,
-                weight: 5,
+                style: function (feature) {
+                    return {
+                        fillColor: setColor(feature.properties.farmland),
+                        fillOpacity: 0.6,
+                        weight: 2,
+                        opacity: 1,
+                        color: '#08519c',
+                        dashArray: '5'
+                    }},
             }),
             legend: '<p><b>Percent of land used for farming per County</b></p>' +
             '<i style="background: ' + colors[4] + '; opacity: 0.5"></i><p><b>77-96</b></p>' +
@@ -379,7 +359,7 @@
             '<i style="background: #dcd906; opacity: 1"></i><p><b>Hay/Pasture</b></p>' +
             '<i style="background: #9a4a00; opacity: 1"></i><p><b>Cultivated Crops</b></p>' +
             '<i style="background: #8dbae4; opacity: 1"></i><p><b>Woody Wetlands</b></p>' +
-            '<i style="background: #1f7bad; opacity: 1"></i><p><b>Emergent Herbaceeaous Wetlands</b></p>',
+            '<i style="background: #1f7bad; opacity: 1"></i><p><b>Emergent Wetlands</b></p>',
 
         },
 
@@ -406,7 +386,7 @@
     };
 
     var marker1 = L.marker([45.501075, -122.968480]).on('click', onClick);
-    function onClick(e) {this.$('section[data-scene=scene3]')}
+    function onClick(e) {$('section[data-scene=scene4]')}
     marker1.addTo(layers.layer2.layer).bindTooltip('Iwasaki Bros. Inc.');
 
     var marker2 = L.marker([43.781699, -122.999213]).on('click', onClick);
@@ -432,7 +412,7 @@
     var scenes = {
         scene1: {lat: 44, lng: -123.5, zoom:  7, layers: ['layer1', 'layer9', 'layer10'], name: "scene 1"},
         scene2: {lat: 44, lng: -123.5, zoom:  7, layers: ['layer3', 'layer4'], name: "scene 2"},
-        scene3: {lat: 44, lng: -123.5, zoom:  7, layers: ['layer3', 'layer2', 'layer13'], name: "scene 3"},
+        scene3: {lat: 44, lng: -123.5, zoom:  7, layers: ['layer3', 'layer2'], name: "scene 3"},
         scene4: {lat: 45.501075, lng: -122.968480, zoom:  17, layers: ['layer1', 'layer5'], name: "scene 4"},
         scene5: {lat: 43.781699, lng: -122.999213, zoom:  16, layers: ['layer1', 'layer6'], name: "scene 5"},
         scene6: {lat: 44.756157, lng: -123.021073, zoom:  16, layers: ['layer1', 'layer7'], name: "scene 6"},
@@ -454,7 +434,7 @@
         navwidget: true,
         navbar: true,
         createMap: function () {
-            var map = L.map($(".storymap-map")[0], {zoomControl: false}).setView([44, -123.5], 4);
+            var map = L.map($(".storymap-map")[0], {zoomControl: false}).setView([44, -123.5], 5);
             basemap = this.baselayer.layer.addTo(map);
             return map;
         }

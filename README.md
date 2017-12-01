@@ -12,11 +12,11 @@ System Architecture
 The system architecture I have employed is the use of several spatial data files (primarily geoJSONs and a set of tiles) on the server side, along with narrative files, to be passed to the client via the geospatial and webserver.
 Main Functions
 The main function of my project is as a story map, using the base code provided by Bo Zhao.
-![Code Snippet](img/codeSnippet.png)
+![CodeSnippet](img/codeSnippet.PNG)
 Another important function was the display of a Century Farm geoJSON, seen below, which contained information on Century Farm density and location.
-![Code Snippet 2](img/codeSnippet2.png)
+![CodeSnippet2](img/codeSnippet2.PNG)
 A third important function was the display of NLCD land cover data, a raster dataset that had to been converted to a tile set using QTiles. 
-![Code Snippet 3](img/codeSnipper3.png)
+![CodeSnippet3](img/codeSnippet3.PNG)
 
 **Reflection**
 

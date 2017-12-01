@@ -92,7 +92,7 @@ h1 {
     }
 
     .viewing {
-        background: rgba(221, 221, 221, 0.5);
+        background: rgba(221, 221, 221, 1);
     }
 
     .storymap-scroll-down {
@@ -114,7 +114,7 @@ section {
 .viewing {
     color: #1c1c1c;
     box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.2);
-    opacity: 0.8;
+    opacity: 0.9;
     filter: alpha(opacity=80);
     -moz-opacity: 0.8;
 }

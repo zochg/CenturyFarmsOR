@@ -61,7 +61,7 @@
                         <li><a href="javascript:window.scrollBy(0, $('section[data-scene=scene6]').offset().top  - $(window).scrollTop() - $('.navbar').height()  - 10);">Jesse and Ruby Looney Farm</a></li>
                         <li><a href="javascript:window.scrollBy(0, $('section[data-scene=scene7]').offset().top  - $(window).scrollTop() - $('.navbar').height()  - 10);">Smith Bros. Farm, Inc.</a></li>
                         <li><a href="javascript:window.scrollBy(0, $('section[data-scene=scene8]').offset().top  - $(window).scrollTop() - $('.navbar').height()  - 10);">Cattrall Brothers Vineyard</a></li>
-                        <li><a href="javascript:window.scrollBy(0, $('section[data-scene=scene9]').offset().top  - $(window).scrollTop() - $('.navbar').height()  - 10);">Stauffard Farms, Inc.</a></li>
+                        <li><a href="javascript:window.scrollBy(0, $('section[data-scene=scene9]').offset().top  - $(window).scrollTop() - $('.navbar').height()  - 10);">Stauffar Farms, Inc.</a></li>
                     </ul>
                 </li>
                 <li>
@@ -161,11 +161,14 @@
             </section>
             <section data-scene="scene9">
                 <h2>Stauffard Farms, Inc.</h2>
+                <p>John Stauffer, Sr., originally came to Hubbard, Oregon in 1872 from Pennsylvania. The farm has been in the hands of the Stauffer family for four generations; John's great grandsons, Robert and Norman Stauffer currently work the land. The Stauffers primarily grow hops and filberts (hazelnuts) on 150 of the original 320 acres.</p>
+                <p>At some point, part of the farm was sold off the old Aurora Colony Museum, including the original barn. The farm and the barn are now on the National Registry of Historic Places.</p>
+                <img src="img/Stauffer_Barn.jpg" class="img-responsive" alt="Old Stauffer Barn">
             </section>
             <section class="viewing section-opacity" data-scene="end" data-background="img/end.jpg" style="height: 340.38px; width: 0px; padding: 0px;">
                 <div class="fullscreen text-center end-bg-img">
                     <br>
-                    <h1 class="">Thank you for reading my story map. I hope you have a better understanding of agriculture in Oregon!</h1>
+                    <h1 class="">Thank you for viewing a small sample of the Century Farms in Oregon. I hope you have a better understanding of agriculture in Oregon!</h1>
                 </div>
             </section>
         </div>
@@ -180,7 +183,7 @@
                     <h4 class="modal-title">About</h4>
                 </div>
                 <div class="modal-body">
-                    <p>This story map was completed as part of a project for GEOG371 Geovisualization, a course taught by Bo Zhao at OSU. This story map is meant to illustrate the Century Farm Progam in Oregon.</p>
+                    <p>This story map was completed in order to demonstrate the diversity, history, and importance of Century farms in representing Oregon's agricultural heritage. This story map is intended to educate people who are interested in preserving the uniqueness of Oregon agriculture</p>
                     <p><b>storymap.js</b> | Released Date: 02/20/2017 | Version: 2.1 | MIT License </p>
                     <p><b>Author: Grant Zoch</b> | College of Earth, Ocean, Atmospheric Science | Oregon State University
                     </p>
@@ -251,10 +254,9 @@
     function onEachFeature(feature, layer) {
         layer.on({
             mouseover: highlightFeature,
-            mouseout: resetHighlight,
-            click: zoomToFeature
+            mouseout: resetHighlight
         });
-        layer.bindPopup('There are' + ' ' + feature.properties.Total_Reco + ' ' + 'in' + ' ' + feature.properties.COUNTY_NAM)
+        layer.bindPopup('There are' + ' ' + feature.properties.Total_Reco + ' ' + 'Century Farms ' + ' ' + 'in' + ' ' + feature.properties.COUNTY_NAM)
     }
 
 
@@ -302,6 +304,7 @@
                         color: '#08519c',
                         dashArray: '5'
                     }},
+
             }),
             legend: '<p><b>Percent of land used for farming per County</b></p>' +
             '<i style="background: ' + colors[4] + '; opacity: 0.5"></i><p><b>77-96</b></p>' +
@@ -383,14 +386,18 @@
                 weight: 5,
             })
         },
+
+        layer13: {
+            layer: L.tileLayer('https://server.arcgisonline.com/arcgis/rest/services/Specialty/Soil_Survey_Map/MapServer/tile/{z}/{y}/{x}'),
+        },
     };
 
     var marker1 = L.marker([45.501075, -122.968480]).on('click', onClick);
-    function onClick(e) {$('section[data-scene=scene4]')}
-    marker1.addTo(layers.layer2.layer).bindTooltip('Iwasaki Bros. Inc.');
+        function onClick() {window.scrollBy(0, $('section4'))}
+    marker1.addTo(layers.layer2.layer).bindTooltip('Iwasaki Brothers, Inc.');
 
     var marker2 = L.marker([43.781699, -122.999213]).on('click', onClick);
-    function onClick(e) {this.$('section[data-scene=scene]')}
+    function onClick(e) {this.$('scene1')}
     marker2.addTo(layers.layer2.layer).bindTooltip('Mosby Century Farm');
 
     var marker3 = L.marker([44.756157, -123.021073]).on('click', onClick);
@@ -407,7 +414,8 @@
 
     var marker6 = L.marker([45.189486, -122.784693]).on('click', onClick);
     function onClick(e) {this.$('section[data-scene=scene3]')}
-    marker6.addTo(layers.layer2.layer).bindTooltip('Stauffard Farms Inc.');
+    marker6.addTo(layers.layer2.layer).bindTooltip('Stauffar Farms Inc.');
+
 
     var scenes = {
         scene1: {lat: 44, lng: -123.5, zoom:  7, layers: ['layer1', 'layer9', 'layer10'], name: "scene 1"},
